@@ -1,0 +1,16 @@
+{
+    "short_name": "Ingenium",
+    "name": "Ingenium Innovation Challenge - Terrararity",
+    "description": "A terrarium web app designed to educate youth aged 9-12 on the topic of climate change.",
+    "icons": [
+    {
+        "src":"/favicon.svg",
+        "sizes": "48x48 72x72 96x96 128x128 256x256 512x512",
+        "type": "image/svg+xml",
+        "purpose": "any"
+    }
+   ],
+   "start_url": ".",
+   "background_color": "#ffffff",
+   "display": "standalone"
+  }
