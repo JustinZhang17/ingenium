@@ -25,8 +25,7 @@ export default function Home() {
                     <Hero />
                     <About />
                     <Divider />
-                    {/* src is required for video component*/}
-                    <Video />
+                    <Video src="https://www.youtube.com/embed/LxgMdjyw8uw" />
                     <Divider />
                     <Team />
                     <Divider />
