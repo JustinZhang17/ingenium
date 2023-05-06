@@ -15,7 +15,7 @@ const Hero = (): JSX.Element => {
                         animate={{ x: 0, opacity: 1 }}
                         transition={{ duration: 0.7 }}
                     >
-                        Cleaning Up The World
+                        Educating The World
                     </motion.p>
                     <motion.span
                         className={
