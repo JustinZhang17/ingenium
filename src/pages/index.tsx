@@ -13,6 +13,7 @@ import Isopod from '@/components/organisms/isopod';
 import Hero from '@/components/organisms/hero';
 import HowTo from '@/components/organisms/howto';
 import Chat from '@/components/organisms/chat';
+import Video from '@/components/organisms/video';
 
 export default function Home() {
     const [currentTab, setCurrentTab] = useState('initiative');
@@ -23,6 +24,9 @@ export default function Home() {
                 <>
                     <Hero />
                     <About />
+                    <Divider />
+                    {/* src is required for video component*/}
+                    <Video />
                     <Divider />
                     <Team />
                     <Divider />
