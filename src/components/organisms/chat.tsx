@@ -72,11 +72,13 @@ const Chat = (): JSX.Element => {
     const handleButtonClick = (): void => {
         const input = document.getElementById('text-area');
 
+        //@ts-ignore
         if (input && input.length === 0) return;
+        //@ts-ignore
         sendAndReceivePrompt(`${document.getElementById('text-area')?.value}`);
 
-        // FIXME: Text input should clear on submission
         if (input) {
+            //@ts-ignore
             input.value = '';
         }
     };
