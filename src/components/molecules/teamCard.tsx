@@ -6,6 +6,7 @@ type TeamCardProps = {
     personImg: StaticImageData;
     name: string;
     desc: string;
+    title: string;
 };
 
 const TeamCard = ({
@@ -13,6 +14,7 @@ const TeamCard = ({
     personImg,
     name,
     desc,
+    title,
 }: TeamCardProps): JSX.Element => {
     return (
         <div className="w-56 sm:w-56 lg:w-auto">
@@ -38,6 +40,8 @@ const TeamCard = ({
                 </h3>
                 <p className="text-sm font-medium text-default-dark dark:text-default-light mt-2">
                     {desc}
+                    <br />
+                    {title}
                 </p>
             </div>
         </div>

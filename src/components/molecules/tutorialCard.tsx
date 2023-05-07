@@ -1,5 +1,5 @@
 // External imports
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import { FiArrowRight } from 'react-icons/fi';
 import { motion } from 'framer-motion';
 
@@ -8,7 +8,7 @@ import Placeholder from '@/assets/isopod-placeholder.jpg';
 import CircularText from '@/components/atoms/circularText';
 
 type TutorialCardCoverProps = {
-    img?: string;
+    img?: StaticImageData;
     title?: string;
     subtitle?: string;
     flair?: string;
@@ -145,7 +145,7 @@ const TutorialCardText = ({
 type TutorialCardDetailProps = {
     title?: string;
     desc?: string;
-    img?: string;
+    img?: StaticImageData;
 };
 
 const TutorialCardDetail = ({
@@ -188,7 +188,7 @@ const TutorialCardDetail = ({
 type TutorialCardDetailReverseProps = {
     title?: string;
     desc?: string;
-    img?: string;
+    img?: StaticImageData;
 };
 
 const TutorialCardDetailReverse = ({
@@ -230,7 +230,7 @@ const TutorialCardDetailReverse = ({
 
 type TutorialCardImageProps = {
     desc?: string;
-    img?: string;
+    img?: StaticImageData;
 };
 
 const TutorialCardImage = ({

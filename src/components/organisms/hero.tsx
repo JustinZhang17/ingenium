@@ -24,7 +24,7 @@ const Hero = (): JSX.Element => {
                         animate={{ x: 0, opacity: 1 }}
                         transition={{ duration: 0.7 }}
                     >
-                         {t.slogan_1}
+                        {t.slogan_1}
                     </motion.p>
                     <motion.span
                         className={

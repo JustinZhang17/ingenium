@@ -21,7 +21,7 @@ const Video = ({ src }: VideoProps): JSX.Element => {
                     src ??
                     'https://www.youtube.com/embed/LxgMdjyw8uw?list=PLFs4vir_WsTysVwsTy7hVL89W2MdQtU_k'
                 }
-                title="We WILL Fix Climate Change!"
+                title="How closed terrariums work and the science behind them!"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen;"
             ></iframe>
         </motion.section>

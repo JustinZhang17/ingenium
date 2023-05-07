@@ -27,11 +27,11 @@ export default function Home() {
                     <Hero />
                     <About />
                     <Divider />
-                    <Video src="https://www.youtube.com/embed/LxgMdjyw8uw" />
-                    <Divider />
                     <Details />
                     <Divider />
                     <Team />
+                    <Divider />
+                    <Video src="https://www.youtube.com/embed/RbbLm5IGIHE" />
                 </>
             );
         if (tab === 'how-to') return <HowTo />;

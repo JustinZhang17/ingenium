@@ -8,9 +8,11 @@ import {
     ChatCompletionRequestMessageRoleEnum,
 } from 'openai';
 import { IoVolumeHigh } from 'react-icons/io5';
+import { useRouter } from 'next/router';
 
-// Internal Imports
-import Divider from '@/components/molecules/divider';
+// Internal imports
+import en from '@/locales/en';
+import fr from '@/locales/fr';
 import Button from '@/components/atoms/button';
 import TextInput from '@/components/atoms/textInput';
 
@@ -26,10 +28,6 @@ let prompts: string[] = [];
 let responses: string[] = [];
 
 const Chat = (): JSX.Element => {
-    // useEffect(() => {
-
-    // }, []);
-
     const constructMessageHistory = (prompt: string) => {
         let messages: ChatCompletionRequestMessage[] = [
             {
@@ -101,6 +99,10 @@ const Chat = (): JSX.Element => {
         }
     };
 
+    const router = useRouter();
+    const { locale } = router;
+    const t = locale === 'en' ? en : fr;
+
     const [question, setQuestion] = useState('');
     const [output, setOutput] = useState('');
     const [loading, setLoading] = useState(false);
@@ -113,7 +115,7 @@ const Chat = (): JSX.Element => {
                     transition={{ duration: 0.7 }}
                     className="gradient-text pb-3 px-0 text-5xl font-extrabold md:px-2 md:text-6xl xl:text-7xl 2xl:text-8xl text-center"
                 >
-                    Terry the Climate Bot
+                    {t.terry_title}
                 </motion.h1>
                 <motion.h6
                     initial={{ x: -200, opacity: 0 }}
@@ -121,8 +123,7 @@ const Chat = (): JSX.Element => {
                     transition={{ duration: 0.7, delay: 0.7 }}
                     className="gradient-text pb-10 text-xl font-extrabold text-center"
                 >
-                    Terry can answer any questions about terrariums or climate
-                    change!
+                    {t.terry_subtitle}
                 </motion.h6>
 
                 <div className="flex items-center justify-center gap-6 my-4 flex-col">
@@ -131,7 +132,7 @@ const Chat = (): JSX.Element => {
                     </div>
                     {loading ? (
                         <div className="w-11/12 text-center animate-pulse text-xl font-extrabold text-default-dark dark:text-default-light">
-                            Terry is thinking...
+                            {t.terry_loading}
                         </div>
                     ) : (
                         <motion.div
@@ -163,7 +164,7 @@ const Chat = (): JSX.Element => {
                     )}
                     <TextInput id="bot_input" />
                     <Button onClick={handleTextButtonClick}>
-                        Send question
+                        {t.terry_submit}
                     </Button>
                 </div>
             </div>

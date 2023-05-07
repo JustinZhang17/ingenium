@@ -1,11 +1,17 @@
 // External Imports
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { useRouter } from 'next/router';
 
-// Internal Imports
-import Terrarium from '@/assets/heros/terrarium-hero-dark.jpg';
+// Internal imports
+import en from '@/locales/en';
+import fr from '@/locales/fr';
+import Terrarium from '@/assets/heros/Initiative.jpg';
 
 const About = (): JSX.Element => {
+    const router = useRouter();
+    const { locale } = router;
+    const t = locale === 'en' ? en : fr;
     return (
         <motion.section
             className="sm:px-6 md:px-24 xl:px-48 py-24 sm:py-44"
@@ -19,17 +25,13 @@ const About = (): JSX.Element => {
                         <div className="lg:pr-4">
                             <div className="lg:max-w-lg">
                                 <p className="text-base font-semibold leading-7 gradient-text">
-                                    Educating The World One Terrarium At A
-                                    Time
+                                    {t.about_subtitle}
                                 </p>
                                 <h1 className="mt-2 text-3xl font-bold tracking-tight text-default-dark dark:text-default-light sm:text-4xl">
-                                    More Lorem Ipsum
+                                    {t.about_title}
                                 </h1>
                                 <p className="mt-6 text-xl leading-8 text-text-dark dark:text-text-light">
-                                    Aliquet nec orci mattis amet quisque
-                                    ullamcorper neque, nibh sem. At arcu, sit
-                                    dui mi, nibh dui, diam eget aliquam. Quisque
-                                    id at vitae feugiat egestas.
+                                    {t.about_subtext}
                                 </p>
                             </div>
                         </div>
@@ -49,27 +51,9 @@ const About = (): JSX.Element => {
                     <div className="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
                         <div className="lg:pr-4">
                             <div className="max-w-xl text-base leading-7 text-default-dark dark:text-default-light lg:max-w-lg">
-                                <p>
-                                    Faucibus commodo massa rhoncus, volutpat.
-                                    Dignissim sed eget risus enim. Mattis mauris
-                                    semper sed amet vitae sed turpis id. Id
-                                    dolor praesent donec est. Odio penatibus
-                                    risus viverra tellus varius sit neque erat
-                                    velit. Faucibus commodo massa rhoncus,
-                                    volutpat. Dignissim sed eget risus enim.
-                                    Mattis mauris semper sed amet vitae sed
-                                    turpis id.
-                                </p>
+                                <p>{t.about_text}</p>
 
-                                <p className="mt-8">
-                                    Et vitae blandit facilisi magna lacus
-                                    commodo. Vitae sapien duis odio id et. Id
-                                    blandit molestie auctor fermentum dignissim.
-                                    Lacus diam tincidunt ac cursus in vel.
-                                    Mauris varius vulputate et ultrices hac
-                                    adipiscing egestas. Iaculis convallis ac
-                                    tempor et ut. Ac lorem vel integer orci.
-                                </p>
+                                <p className="mt-8">{t.about_text_2}</p>
                             </div>
                         </div>
                     </div>
