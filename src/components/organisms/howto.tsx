@@ -102,7 +102,7 @@ const HowTo = (): JSX.Element => {
                     Click Here To Download A PDF Version
                 </Button>
             </div>
-            <div className="fixed top-0 right-0 p-4 gap-6 hidden md:flex bg-default-light dark:bg-default-dark rounded-bl-2xl opacity-20 hover:opacity-100 transition-opacity duration-300 ease-in-out">
+            <div className="fixed top-0 left-0 p-4 gap-6 hidden md:flex bg-default-light dark:bg-default-dark rounded-br-2xl opacity-20 hover:opacity-100 transition-opacity duration-300 ease-in-out">
                 <motion.button
                     whileHover={{ scale: 1.2 }}
                     whileTap={{ scale: 0.9 }}

@@ -1,12 +1,13 @@
 // External Imports
 import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
     Configuration,
     OpenAIApi,
     ChatCompletionRequestMessage,
     ChatCompletionRequestMessageRoleEnum,
 } from 'openai';
+import { IoVolumeHigh } from 'react-icons/io5';
 
 // Internal Imports
 import Divider from '@/components/molecules/divider';
@@ -25,6 +26,10 @@ let prompts: string[] = [];
 let responses: string[] = [];
 
 const Chat = (): JSX.Element => {
+    // useEffect(() => {
+
+    // }, []);
+
     const constructMessageHistory = (prompt: string) => {
         let messages: ChatCompletionRequestMessage[] = [
             {
@@ -69,13 +74,16 @@ const Chat = (): JSX.Element => {
         }
     };
 
-    const handleButtonClick = (): void => {
+    const handleTextButtonClick = (): void => {
         const input = document.getElementById('text-area');
 
         //@ts-ignore
-        if (input && input.length === 0) return;
+        const question = `${document.getElementById('text-area')?.value}`;
+
         //@ts-ignore
-        sendAndReceivePrompt(`${document.getElementById('text-area')?.value}`);
+        if (input && input.length === 0) return;
+        sendAndReceivePrompt(question);
+        setQuestion(`${question}`);
 
         if (input) {
             //@ts-ignore
@@ -83,6 +91,17 @@ const Chat = (): JSX.Element => {
         }
     };
 
+    const handleTTSButtonClick = (): void => {
+        if ('speechSynthesis' in window) {
+            const speechSynthesizer = new SpeechSynthesisUtterance();
+            speechSynthesizer.rate = 1.0; // Speech rate (0.1 to 10)
+            speechSynthesizer.pitch = 1.0; // Speech pitch (0 to 2)
+            speechSynthesizer.text = output;
+            window.speechSynthesis.speak(speechSynthesizer);
+        }
+    };
+
+    const [question, setQuestion] = useState('');
     const [output, setOutput] = useState('');
     const [loading, setLoading] = useState(false);
     return (
@@ -107,17 +126,45 @@ const Chat = (): JSX.Element => {
                 </motion.h6>
 
                 <div className="flex items-center justify-center gap-6 my-4 flex-col">
+                    <div className="w-11/12 md:text-xl text-base font-extrabold text-default-dark dark:text-default-light">
+                        {question}
+                    </div>
                     {loading ? (
                         <div className="w-11/12 text-center animate-pulse text-xl font-extrabold text-default-dark dark:text-default-light">
                             Terry is thinking...
                         </div>
                     ) : (
-                        <div className="w-11/12 text-center md:text-xl text-base font-extrabold text-default-dark dark:text-default-light">
+                        <motion.div
+                            initial={{ x: -200, opacity: 0 }}
+                            animate={{ x: 0, opacity: 1 }}
+                            transition={{ duration: 0.7, delay: 0.7 }}
+                            className="w-11/12 text-center md:text-xl text-base text-default-dark dark:text-default-light"
+                        >
                             {output}
-                        </div>
+                            {'speechSynthesis' in window &&
+                            output.length > 0 ? (
+                                <motion.span
+                                    transition={{
+                                        duration: 0.1,
+                                        ease: 'easeOut',
+                                    }}
+                                    className="flex justify-end"
+                                >
+                                    <IoVolumeHigh
+                                        className="text-lg font-bold text-default-dark dark:text-default-light hover:text-secondary-dark hover:dark:text-secondary-light cursor-pointer transition-colors duration-300 ease-in-out"
+                                        size={25}
+                                        onClick={handleTTSButtonClick}
+                                    />
+                                </motion.span>
+                            ) : (
+                                <></>
+                            )}
+                        </motion.div>
                     )}
                     <TextInput id="bot_input" />
-                    <Button onClick={handleButtonClick}>Send question</Button>
+                    <Button onClick={handleTextButtonClick}>
+                        Send question
+                    </Button>
                 </div>
             </div>
         </>

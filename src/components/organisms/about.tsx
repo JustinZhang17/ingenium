@@ -19,7 +19,7 @@ const About = (): JSX.Element => {
                         <div className="lg:pr-4">
                             <div className="lg:max-w-lg">
                                 <p className="text-base font-semibold leading-7 gradient-text">
-                                    Cleaning Up The World One Terrarium At A
+                                    Educating The World One Terrarium At A
                                     Time
                                 </p>
                                 <h1 className="mt-2 text-3xl font-bold tracking-tight text-default-dark dark:text-default-light sm:text-4xl">

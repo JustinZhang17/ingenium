@@ -3,6 +3,7 @@ import React from 'react';
 import { FaRobot } from 'react-icons/fa';
 import { IoIosPaper } from 'react-icons/io';
 import { AiFillHome, AiFillBug } from 'react-icons/ai';
+import { MdPhoto } from 'react-icons/md';
 
 // Internal Imports
 import Logo from '@/components/atoms/logo';
@@ -31,11 +32,15 @@ const Navbar = ({ setTab }: NavbarProps): JSX.Element => {
                             How To
                         </NavLink>
                         <NavLink href={'isopod'} setTab={setTab}>
-                            Classify Isopods
+                            Classify
                         </NavLink>
                         <NavLink href={'chatbot'} setTab={setTab}>
                             Climate Bot
                         </NavLink>
+                        <NavLink href={'inspo'} setTab={setTab}>
+                            TerraGrams
+                        </NavLink>
+
                         <ThemeToggle />
                     </div>
 
@@ -52,6 +57,9 @@ const Navbar = ({ setTab }: NavbarProps): JSX.Element => {
                         </NavLink>
                         <NavLink href={'chatbot'} setTab={setTab}>
                             <FaRobot size={30} />
+                        </NavLink>
+                        <NavLink href={'inspo'} setTab={setTab}>
+                            <MdPhoto size={30} />
                         </NavLink>
                         <ThemeToggle />
                     </div>

@@ -14,6 +14,8 @@ import Hero from '@/components/organisms/hero';
 import HowTo from '@/components/organisms/howto';
 import Chat from '@/components/organisms/chat';
 import Video from '@/components/organisms/video';
+import Inspo from '@/components/organisms/inspo';
+import LanguageToggle from '@/components/atoms/languageToggle';
 
 export default function Home() {
     const [currentTab, setCurrentTab] = useState('initiative');
@@ -27,19 +29,21 @@ export default function Home() {
                     <Divider />
                     <Video src="https://www.youtube.com/embed/LxgMdjyw8uw" />
                     <Divider />
-                    <Team />
-                    <Divider />
                     <Details />
+                    <Divider />
+                    <Team />
                 </>
             );
         if (tab === 'how-to') return <HowTo />;
         if (tab === 'isopod') return <Isopod />;
         if (tab === 'chatbot') return <Chat />;
+        if (tab === 'inspo') return <Inspo />;
         return <div>Unknown Tab</div>;
     };
 
     return (
         <>
+            <LanguageToggle />
             <Navbar setTab={setCurrentTab} />
             <Spotlight />
             <AnimatePresence>{getTab(currentTab)}</AnimatePresence>
