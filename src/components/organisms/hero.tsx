@@ -1,8 +1,17 @@
 // External imports
 import { motion } from 'framer-motion';
+import { useRouter } from 'next/router';
 import { FiArrowDown } from 'react-icons/fi';
 
+// Internal imports
+import en from '@/locales/en';
+import fr from '@/locales/fr';
+
 const Hero = (): JSX.Element => {
+    const router = useRouter();
+    const { locale } = router;
+    const t = locale === 'en' ? en : fr;
+
     return (
         <section>
             <div className={'h-screen md:grid place-content-center hidden'}>
@@ -15,7 +24,7 @@ const Hero = (): JSX.Element => {
                         animate={{ x: 0, opacity: 1 }}
                         transition={{ duration: 0.7 }}
                     >
-                        Educating The World
+                         {t.slogan_1}
                     </motion.p>
                     <motion.span
                         className={
@@ -25,7 +34,7 @@ const Hero = (): JSX.Element => {
                         animate={{ x: 0, opacity: 1 }}
                         transition={{ duration: 0.7, delay: 0.4 }}
                     >
-                        One Terrarium
+                        {t.slogan_2}
                     </motion.span>
                     <motion.p
                         className={
@@ -35,7 +44,7 @@ const Hero = (): JSX.Element => {
                         animate={{ x: 0, opacity: 1 }}
                         transition={{ duration: 0.7, delay: 0.8 }}
                     >
-                        At A Time.
+                        {t.slogan_3}
                     </motion.p>
                 </div>
                 <motion.div
