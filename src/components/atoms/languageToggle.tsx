@@ -12,7 +12,6 @@ const LanguageToggle = (): JSX.Element => {
     const t = locale === 'en' ? en : fr;
 
     const changeLanguage = () => {
-        console.log('hi');
         const locale = router.locale === 'en' ? 'fr' : 'en';
         router.push('/', '/', { locale });
     };

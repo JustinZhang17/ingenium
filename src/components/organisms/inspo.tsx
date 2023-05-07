@@ -1,7 +1,10 @@
 // External imports
 import { motion } from 'framer-motion';
+import { useRouter } from 'next/router';
 
 // Internal imports
+import en from '@/locales/en';
+import fr from '@/locales/fr';
 import Polaroid from '@/components/molecules/polaroid';
 import TerrariumA from '@/assets/heros/terrarium-1.jpg';
 import TerrariumB from '@/assets/heros/terrarium-2.jpg';
@@ -10,6 +13,9 @@ import TerrariumD from '@/assets/heros/terrarium-4.jpg';
 import TerrariumE from '@/assets/heros/terrarium-5.jpg';
 
 const Inspo = () => {
+    const router = useRouter();
+    const { locale } = router;
+    const t = locale === 'en' ? en : fr;
     return (
         <>
             <motion.h1
@@ -18,7 +24,7 @@ const Inspo = () => {
                 transition={{ duration: 0.7 }}
                 className=" gradient-text py-12 px-0 text-5xl font-extrabold md:px-2 md:text-6xl xl:text-7xl 2xl:text-8xl text-center"
             >
-                TerraGrams
+                {t.inspo_title}
             </motion.h1>
 
             <div
@@ -32,7 +38,7 @@ const Inspo = () => {
                 />
                 <Polaroid
                     title="Darien Backstrom"
-                    desc="Quebec City, QC"
+                    desc="Quebec, QC"
                     src={TerrariumB}
                 />
                 <Polaroid

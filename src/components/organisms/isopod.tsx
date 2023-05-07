@@ -4,8 +4,11 @@ import { HiOutlineCloudUpload } from 'react-icons/hi';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import * as tf from '@tensorflow/tfjs';
+import { useRouter } from 'next/router';
 
-// Internal Imports
+// Internal imports
+import en from '@/locales/en';
+import fr from '@/locales/fr';
 import Button from '@/components/atoms/button';
 import Placeholder from '@/assets/isopod-placeholder.jpg';
 import Divider from '@/components/molecules/divider';
@@ -24,10 +27,13 @@ const getIsopodType = (values: number[]): string => {
 };
 
 const Isopod = (): JSX.Element => {
+    const router = useRouter();
+    const { locale } = router;
+    const t = locale === 'en' ? en : fr;
     const [image, setImage] = useState(null);
     const [createObjectURL, setCreateObjectURL] = useState('');
     const [classification, setClassification] = useState(
-        'Please Upload an Image! '
+        'Please Upload an Image!'
     );
 
     const identifyIsopod = async (): Promise<void> => {
@@ -81,7 +87,7 @@ const Isopod = (): JSX.Element => {
                 transition={{ duration: 0.7 }}
                 className=" gradient-text py-12 px-0 text-5xl font-extrabold md:px-2 md:text-6xl xl:text-7xl 2xl:text-8xl text-center"
             >
-                Identify Isopods
+                {t.isopod_title}
             </motion.h1>
             <Divider />
             <motion.div
@@ -112,7 +118,7 @@ const Isopod = (): JSX.Element => {
                     <div className="text-xl font-extrabold text-default-dark dark:text-default-light">
                         {classification === 'Classifying...' ? (
                             <span className=" animate-ping">
-                                Classifying...
+                                {t.isopod_loading}
                             </span>
                         ) : (
                             classification
@@ -130,9 +136,9 @@ const Isopod = (): JSX.Element => {
                             <HiOutlineCloudUpload className="w-10 h-10 mb-3 text-default-dark dark:text-default-light" />
                             <p className="mb-2 text-sm text-default-dark dark:text-default-light">
                                 <span className="font-semibold">
-                                    Click to upload&nbsp;
+                                    {t.isopod_upload1}&nbsp;
                                 </span>
-                                or drag and drop
+                                {t.isopod_upload2}
                             </p>
                             <p className="text-xs text-default-dark dark:text-default-light">
                                 PNG, JPG (MAX. 800x600px)
@@ -147,7 +153,7 @@ const Isopod = (): JSX.Element => {
                     </label>
                     <div className="flex justify-center mb-48 md:mb-0">
                         <Button onClick={identifyIsopod}>
-                            Identify Isopod
+                            {t.isopod_submit}
                         </Button>
                     </div>
                 </div>

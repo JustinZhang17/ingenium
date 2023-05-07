@@ -1,5 +1,5 @@
 // External imports
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import { FiArrowRight } from 'react-icons/fi';
 import { motion } from 'framer-motion';
 
@@ -8,7 +8,7 @@ import Placeholder from '@/assets/isopod-placeholder.jpg';
 import CircularText from '@/components/atoms/circularText';
 
 type TutorialCardCoverProps = {
-    img?: string;
+    img?: StaticImageData;
     title?: string;
     subtitle?: string;
     flair?: string;
@@ -36,7 +36,7 @@ const TutorialCardCover = ({
         >
             <Image
                 src={img ?? Placeholder}
-                alt={img ?? Placeholder.toString()}
+                alt={Placeholder.toString()}
                 className="h-1/2 object-cover rounded-md"
             />
             <div className="flex items-end">
@@ -145,7 +145,7 @@ const TutorialCardText = ({
 type TutorialCardDetailProps = {
     title?: string;
     desc?: string;
-    img?: string;
+    img?: StaticImageData;
 };
 
 const TutorialCardDetail = ({
@@ -178,7 +178,7 @@ const TutorialCardDetail = ({
             </div>
             <Image
                 src={img ?? Placeholder}
-                alt={img ?? Placeholder.toString()}
+                alt={Placeholder.toString()}
                 className="object-cover h-1/2 rounded-b-lg"
             />
         </motion.div>
@@ -188,7 +188,7 @@ const TutorialCardDetail = ({
 type TutorialCardDetailReverseProps = {
     title?: string;
     desc?: string;
-    img?: string;
+    img?: StaticImageData;
 };
 
 const TutorialCardDetailReverse = ({
@@ -221,7 +221,7 @@ const TutorialCardDetailReverse = ({
             </div>
             <Image
                 src={img ?? Placeholder}
-                alt={img ?? Placeholder.toString()}
+                alt={Placeholder.toString()}
                 className="object-cover h-1/2 rounded-t-lg"
             />
         </motion.div>
@@ -230,7 +230,7 @@ const TutorialCardDetailReverse = ({
 
 type TutorialCardImageProps = {
     desc?: string;
-    img?: string;
+    img?: StaticImageData;
 };
 
 const TutorialCardImage = ({
@@ -253,7 +253,7 @@ const TutorialCardImage = ({
         >
             <Image
                 src={img ?? Placeholder}
-                alt={img ?? Placeholder.toString()}
+                alt={Placeholder.toString()}
                 className="object-cover max-h-56"
             />
             <span className="text-md text-default-dark dark:text-default-light text-center p-5">

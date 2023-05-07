@@ -1,7 +1,10 @@
 // External Imports
 import { motion } from 'framer-motion';
+import { useRouter } from 'next/router';
 
-// Internal Imports
+// Internal imports
+import en from '@/locales/en';
+import fr from '@/locales/fr';
 import TeamCard from '@/components/molecules/teamCard';
 import JustinPerson from '@/assets/team/justin-person.png';
 import JustinBackground from '@/assets/team/justin-background.png';
@@ -15,6 +18,9 @@ import NicolePerson from '@/assets/team/nicole-person.png';
 import NicoleBackground from '@/assets/team/nicole-background.png';
 
 const Team = (): JSX.Element => {
+    const router = useRouter();
+    const { locale } = router;
+    const t = locale === 'en' ? en : fr;
     return (
         <motion.section
             className="sm:px-6 md:px-24 xl:px-48 py-24 sm:py-44 grid place-content-center "
@@ -23,7 +29,7 @@ const Team = (): JSX.Element => {
             transition={{ duration: 2, ease: 'easeOut' }}
         >
             <h2 className="text-4xl font-bold text-center text-default-dark dark:text-default-light">
-                Who Are We?
+                {t.team_title}
             </h2>
             <div
                 className={
@@ -34,31 +40,36 @@ const Team = (): JSX.Element => {
                     backgroundImg={EliasBackground}
                     personImg={EliasPerson}
                     name="Elias"
-                    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae nisi eget nunc ultricies aliquam. "
+                    title={t.team_elias_desc}
+                    desc={t.team_elias}
                 />
                 <TeamCard
                     backgroundImg={JustinBackground}
                     personImg={JustinPerson}
                     name="Justin"
-                    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae nisi eget nunc ultricies aliquam. "
+                    title={t.team_justin_desc}
+                    desc={t.team_justin}
                 />
                 <TeamCard
                     backgroundImg={SuviBackground}
                     personImg={SuviPerson}
                     name="Suvi"
-                    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae nisi eget nunc ultricies aliquam. "
+                    title={t.team_suvi_desc}
+                    desc={t.team_suvi}
                 />
                 <TeamCard
                     backgroundImg={AdamBackground}
                     personImg={AdamPerson}
                     name="Adam"
-                    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae nisi eget nunc ultricies aliquam. "
+                    title={t.team_adam_desc}
+                    desc={t.team_adam}
                 />
                 <TeamCard
                     backgroundImg={NicoleBackground}
                     personImg={NicolePerson}
                     name="Nicole"
-                    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae nisi eget nunc ultricies aliquam. "
+                    title={t.team_nicole_desc}
+                    desc={t.team_nicole}
                 />
             </div>
         </motion.section>

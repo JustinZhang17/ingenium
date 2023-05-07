@@ -1,8 +1,11 @@
 // External Imports
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { useRouter } from 'next/router';
 
-// Internal Imports
+// Internal imports
+import en from '@/locales/en';
+import fr from '@/locales/fr';
 import TerrariumA from '@/assets/heros/terrarium-1.jpg';
 import TerrariumB from '@/assets/heros/terrarium-2.jpg';
 import TerrariumC from '@/assets/heros/terrarium-3.jpg';
@@ -10,6 +13,9 @@ import TerrariumD from '@/assets/heros/terrarium-4.jpg';
 import DetailItem from '@/components/atoms/detailItem';
 
 const Details = (): JSX.Element => {
+    const router = useRouter();
+    const { locale } = router;
+    const t = locale === 'en' ? en : fr;
     return (
         <motion.section
             className="sm:px-6 md:px-24 xl:px-48 py-24 sm:py-44"
@@ -20,30 +26,36 @@ const Details = (): JSX.Element => {
             <div className="mx-auto grid max-w-2xl grid-cols-1 items-start gap-x-8 gap-y-16 px-4  sm:px-6  lg:max-w-7xl lg:grid-cols-2 lg:px-8 ">
                 <div>
                     <h2 className="text-3xl font-bold tracking-tight text-default-dark dark:text-default-light sm:text-4xl">
-                        Lorem Ipsum Words
+                        {t.details_subtitle}
                     </h2>
                     <p className="mt-4 text-default-dark dark:text-default-light">
-                        Nunc vel vestibulum nisi. Pellentesque finibus, velit
-                        quis suscipit facilisis, neque sem convallis ante, eget
-                        vulputate est orci nec mi. Morbi et faucibus metus.
+                        {t.details_title}
                     </p>
 
                     <dl className="mt-16 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 lg:gap-x-8 ">
                         <DetailItem
-                            title="Lorem Ipsum"
-                            desc="More Lorem Ipsum"
+                            title={t.details_card_title1}
+                            desc={t.details_card_desc1}
                         />
                         <DetailItem
-                            title="Lorem Ipsum"
-                            desc="More Lorem Ipsum"
+                            title={t.details_card_title2}
+                            desc={t.details_card_desc2}
                         />
                         <DetailItem
-                            title="Lorem Ipsum"
-                            desc="More Lorem Ipsum"
+                            title={t.details_card_title3}
+                            desc={t.details_card_desc3}
                         />
                         <DetailItem
-                            title="Lorem Ipsum"
-                            desc="More Lorem Ipsum"
+                            title={t.details_card_title4}
+                            desc={t.details_card_desc4}
+                        />
+                        <DetailItem
+                            title={t.details_card_title5}
+                            desc={t.details_card_desc5}
+                        />
+                        <DetailItem
+                            title={t.details_card_title6}
+                            desc={t.details_card_desc6}
                         />
                     </dl>
                 </div>
