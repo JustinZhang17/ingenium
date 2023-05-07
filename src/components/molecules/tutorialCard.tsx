@@ -36,7 +36,7 @@ const TutorialCardCover = ({
         >
             <Image
                 src={img ?? Placeholder}
-                alt={img ?? Placeholder.toString()}
+                alt={Placeholder.toString()}
                 className="h-1/2 object-cover rounded-md"
             />
             <div className="flex items-end">
@@ -178,7 +178,7 @@ const TutorialCardDetail = ({
             </div>
             <Image
                 src={img ?? Placeholder}
-                alt={img ?? Placeholder.toString()}
+                alt={Placeholder.toString()}
                 className="object-cover h-1/2 rounded-b-lg"
             />
         </motion.div>
@@ -221,7 +221,7 @@ const TutorialCardDetailReverse = ({
             </div>
             <Image
                 src={img ?? Placeholder}
-                alt={img ?? Placeholder.toString()}
+                alt={Placeholder.toString()}
                 className="object-cover h-1/2 rounded-t-lg"
             />
         </motion.div>
@@ -253,7 +253,7 @@ const TutorialCardImage = ({
         >
             <Image
                 src={img ?? Placeholder}
-                alt={img ?? Placeholder.toString()}
+                alt={Placeholder.toString()}
                 className="object-cover max-h-56"
             />
             <span className="text-md text-default-dark dark:text-default-light text-center p-5">
