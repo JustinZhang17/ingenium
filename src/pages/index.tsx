@@ -14,6 +14,8 @@ import Hero from '@/components/organisms/hero';
 import HowTo from '@/components/organisms/howto';
 import Chat from '@/components/organisms/chat';
 import Video from '@/components/organisms/video';
+import LanguageToggle from '@/components/atoms/languageToggle';
+
 
 export default function Home() {
     const [currentTab, setCurrentTab] = useState('initiative');
@@ -40,6 +42,7 @@ export default function Home() {
 
     return (
         <>
+            <LanguageToggle />
             <Navbar setTab={setCurrentTab} />
             <Spotlight />
             <AnimatePresence>{getTab(currentTab)}</AnimatePresence>
